@@ -1,0 +1,11 @@
+{
+  "name": "solarcalc",
+  "version": "1.0.0",
+  "description": "Calculates nominal power of a user defined hypothetical solar installation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Alexandra Ash",
+  "license": "ISC"
+}
