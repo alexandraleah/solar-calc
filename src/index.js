@@ -3,8 +3,8 @@
 import mapboxgl from 'mapbox-gl'
 import area from '@turf/area'
 //change these to import
-const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder')
-const MapboxDraw = require('@mapbox/mapbox-gl-draw')
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import MapboxDraw from '@mapbox/mapbox-gl-draw'
 
 //the Mapbox api token is intended to be public so no need to store it in an environmental variable nor prevent it from being uploaded to github.
 mapboxgl.accessToken =
@@ -12,27 +12,46 @@ mapboxgl.accessToken =
 
 const map = new mapboxgl.Map({
   container: 'map',
-  center: [-71.08, 42.381],
-  zoom: 15, // starting zoom
+  center: [-71.1111, 42.3243],
+  zoom: 13, // starting zoom
   style: 'mapbox://styles/mapbox/satellite-streets-v9' // chose the satellite street style to allow users to view the roofs while also seeing street names for context
 })
+
+//adds navigation tools
+map.addControl(new mapboxgl.NavigationControl())
 
 //when it searches need to have a way to zoom in closer in on the address and maybe highlight which one it is
 //uses Mapbox geocoder to add a search bar and search for an address
 //documentation and example here https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/
-map.addControl(
-  new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  })
-)
+
+let geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  zoom: 19 //defines zoom after search is complete
+})
+map.addControl(geocoder)
+
+// use geocoder promximity in order to bias results to where the maps is currently focused
+//based on mapbox documentation here https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder-proximity-bias/
+map.on('load', updateGeocoderProximity) // set proximity on map load
+map.on('moveend', updateGeocoderProximity) // and then update proximity each time the map moves
+
+function updateGeocoderProximity() {
+  // proximity is designed for local scale, if the user is looking at the whole world,
+  // it doesn't make sense to factor in the arbitrary centre of the map
+  if (map.getZoom() > 9) {
+    var center = map.getCenter().wrap() // ensures the longitude falls within -180 to 180 as the Geocoding API doesn't accept values outside this range
+    geocoder.setProximity({longitude: center.lng, latitude: center.lat})
+  } else {
+    geocoder.setProximity(null)
+  }
+}
 
 //Mapbox draw create a simple user interface to draw polygons (in this case) on the map.
 //tutorial here https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
 const draw = new MapboxDraw({
   displayControlsDefault: false,
   controls: {
-    polygon: true,
-    trash: true
+    polygon: true
   }
 })
 
