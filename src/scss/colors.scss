@@ -1,0 +1,28 @@
+//colors
+$yellow: #ffdd22;
+$orange: #ff8e00;
+$bronze: #cd7f32;
+$silver: #bfbdc1;
+$grey: #333333;
+$text: #37323e;
+
+//brand
+$primary: $yellow;
+$secondary: $grey;
+$accent: $orange;
+$background: white;
+$body-text: $text;
+$light-text: white;
+
+//fonts
+$font: museo-sans, sans-serif;
+
+//setting bootstrap variables
+$font-family-base: $font;
+$card-cap-bg: $secondary;
+$body-bg: $background;
+$body-color: $body-text;
+
+//navbar
+$navbar-dark-color: $light-text;
+$nav-tabs-link-active-color: $light-text;

@@ -1,38 +1,15 @@
+//colors
+@import 'colors.scss';
+//map styles
+@import 'map.scss';
+//panel styles
+@import 'panel.scss';
+
 //mapbox style sheets
 @import '~@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 @import '~@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 @import '~mapbox-gl/dist/mapbox-gl.css';
 
-//consider breaking into smaller files as appropriate
-
-body {
-  margin: 0;
-  padding: 0;
-}
-#map {
-  height: 100vh;
-  width: 100vw;
-}
-
-.panel {
-  width: 300px;
-  position: absolute;
-  top: 40px;
-  left: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 15px;
-}
-
-p {
-  font-family: 'Open Sans';
-  margin: 0;
-  font-size: 13px;
-}
-#draw {
-  width: 30px;
-  display: inline-block;
-}
-.mapboxgl-ctrl-group .mapboxgl-ctrl {
-  display: inline;
-  width: 30px;
-}
+//bootstrap
+//if have time only import the modules that you use
+@import '~bootstrap/scss/bootstrap';
