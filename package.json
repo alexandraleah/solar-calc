@@ -4,8 +4,13 @@
   "description": "Calculates nominal power of a user defined hypothetical solar installation",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack -w"
   },
   "author": "Alexandra Ash",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  }
 }

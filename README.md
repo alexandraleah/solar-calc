@@ -5,8 +5,4 @@ A prototype of a web app that calculates nominal power of a user defined hypothe
 ##Built With
 
 - Webpack: allows for use of modules on the front-end, cleaner code, easier use of libraries
--
-
-##To Do's
-
-1. Probably add a simple server such as the one mentioned in boilermaker
+- Mapbox: I decided to use Mapbox instead of Google Maps because of the clear documentation and examples esepcially for allowing the user to draw and polygon and allowing the user to search. Additionaly I feel that the user interface for the polygon drawing is more user friendly on Mapbox than on Google Maps.
