@@ -14,7 +14,7 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: 'map',
   center: [-71.1111, 42.3243],
-  zoom: 13, // starting zoom
+  zoom: 19, // starting zoom
   style: 'mapbox://styles/mapbox/satellite-streets-v9' // chose the satellite street style to allow users to view the roofs while also seeing street names for context
 })
 
@@ -29,7 +29,7 @@ let geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   zoom: 19 //defines zoom after search is complete
 })
-map.addControl(geocoder)
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map))
 
 // use geocoder promximity in order to bias results to where the maps is currently focused
 //based on mapbox documentation here https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder-proximity-bias/
@@ -52,11 +52,12 @@ function updateGeocoderProximity() {
 const draw = new MapboxDraw({
   displayControlsDefault: false,
   controls: {
-    polygon: true
+    polygon: true,
+    trash: true
   }
 })
 
-map.addControl(draw)
+document.getElementById('draw').appendChild(draw.onAdd(map))
 
 map.on('draw.create', updateArea)
 map.on('draw.delete', updateArea)
@@ -65,6 +66,11 @@ map.on('draw.update', updateArea)
 //According to pickmysolar.com the average efficiency of solar panels falls between the 15% to 18% efficiency range. This calculator uses at 15% efficiency rate to generate a conservative estimate
 //A solar panel with a 15% efficiency rate would produce 150 watts per square meter under standard test conditions
 //rewrite this formula as the app devleops to make it make more sense for this context
+
+function clear() {
+  draw.deleteAll()
+}
+
 function updateArea(e) {
   let data = draw.getAll()
   let answer = document.getElementById('calculated-area')
