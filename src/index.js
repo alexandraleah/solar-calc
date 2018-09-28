@@ -1,6 +1,8 @@
 //consider splitting this into different files as appropriate
 
 import mapboxgl from 'mapbox-gl'
+import area from '@turf/area'
+//change these to import
 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder')
 const MapboxDraw = require('@mapbox/mapbox-gl-draw')
 
@@ -39,3 +41,27 @@ map.addControl(draw)
 map.on('draw.create', updateArea)
 map.on('draw.delete', updateArea)
 map.on('draw.update', updateArea)
+
+//According to pickmysolar.com the average efficiency of solar panels falls between the 15% to 18% efficiency range. This calculator uses at 15% efficiency rate to generate a conservative estimate
+//A solar panel with a 15% efficiency rate would produce 150 watts per square meter under standard test conditions
+//rewrite this formula as the app devleops to make it make more sense for this context
+function updateArea(e) {
+  let data = draw.getAll()
+  let answer = document.getElementById('calculated-area')
+  if (data.features.length > 0) {
+    //use turf area to calculate the area of the polygon in square meters and round down to the nearest meter
+    //I chose to round down to the nearest square meter because typical residential solar panels roughly 1.6 square meters
+    let caclualatedArea = Math.round(area(data))
+    //calculate the nominal power assuming 150 Watts per meter and round to the nearest watt and convert to kW
+    let nominalPower = Math.round(caclualatedArea * 150) / 1000
+    answer.innerHTML =
+      '<p>Area ' +
+      caclualatedArea +
+      ' square meters </p><p>Nominal power ' +
+      nominalPower +
+      ' kW</p>'
+  } else {
+    answer.innerHTML = ''
+    if (e.type !== 'draw.delete') alert('Use the draw tools to draw a polygon!') //fix this we don't want alerts
+  }
+}
