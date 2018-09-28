@@ -1,4 +1,10 @@
-/* switch to sass */
+//mapbox style sheets
+@import '~@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+@import '~@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+@import '~mapbox-gl/dist/mapbox-gl.css';
+
+//consider breaking into smaller files as appropriate
+
 body {
   margin: 0;
   padding: 0;

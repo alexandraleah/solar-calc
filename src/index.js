@@ -1,5 +1,6 @@
 //consider splitting this into different files as appropriate
-
+//import styles
+import './scss/styles.scss'
 import mapboxgl from 'mapbox-gl'
 import area from '@turf/area'
 //change these to import

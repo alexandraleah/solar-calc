@@ -12,6 +12,14 @@ module.exports = {
     extensions: ['.js']
   },
   devtool: 'source-map',
+  module: {
+    rules: [
+      {
+        test: /\.scss?$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
   devServer: {
     contentBase: './public'
   },
