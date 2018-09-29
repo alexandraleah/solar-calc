@@ -4,7 +4,6 @@
   "description": "Calculates nominal power of a user defined hypothetical solar installation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha  \"./src/**/*.spec.js\"  --require @babel/polyfill --require @babel/core",
     "build": "webpack",
     "start": "webpack-dev-server --open"
   },

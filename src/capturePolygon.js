@@ -63,7 +63,7 @@ function displayStats() {
       '<h4>Nominal power: &nbsp;' +
       stats.power +
       ' kW </h4><p>Area Selected: &nbsp;' +
-      stats.caclualatedArea +
+      stats.calculatedArea +
       ' square meters </p>'
   }
 }
