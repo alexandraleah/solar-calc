@@ -3,6 +3,8 @@
 
   <head>
     <title>Solar Calculator</title>
+    <!-- font awesome delivered by a cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- this bundle file is created by webpack -->
     <script src="./bundle.js" defer></script>
   </head>
@@ -11,6 +13,7 @@
     <header><h2>CALCULATE YOUR SOLAR POTENTIAL</h2></header>
     <div id="map"></div>
     <div class="container-fluid">
+    <!-- First panel, this one is displayed when page is loaded -->
       <div class='panel' id="panelOne">
         <h4>Design your system</h4>
         <div class="row">
@@ -19,12 +22,17 @@
             <div id='draw' class='draw'></div>
           </div>
         </div>
-        <div><p>Search for your site. Then click the icon above and draw a polygon around the area you would like the solar panels. Double click to complete the drawing.</p>
-        <button class = "btn btn-danger">Clear</button>
-         <button class = "btn btn-primary">Calculate</button>
+        <div>
+          <p>Search for your site. Then click the icon above and draw a polygon around the area you would like the solar panels. Double click to complete the drawing.</p>
+          <button class = "btn btn-danger" id="clearBtn">Clear</button>
+          <button class = "btn btn-primary" id="calculateBtn">Calculate</button>
+        </div>
+      </div>
+      <!-- second panel this one is hidden when page is loaded and dislpayed when power is calculated -->
+      <div class='panel' id="panelTwo">
+        <h4>System Stats</h4>
         <div id='calculated-area'></div>
-
-    </div>
+        <button class = "btn btn-primary" id="resetBtn">Reset</button>
     </div>
   </body>
 </html>

@@ -3,7 +3,6 @@
 import './scss/styles.scss'
 import mapboxgl from 'mapbox-gl'
 import area from '@turf/area'
-//change these to import
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import MapboxDraw from '@mapbox/mapbox-gl-draw'
 
@@ -66,27 +65,53 @@ map.on('draw.update', updateArea)
 //A solar panel with a 15% efficiency rate would produce 150 watts per square meter under standard test conditions
 //rewrite this formula as the app devleops to make it make more sense for this context
 
-function clear() {
-  draw.deleteAll()
-}
+let clearButton = document.getElementById('clearBtn')
+let resetBtn = document.getElementById('resetBtn')
+let panelOne = document.getElementById('panelOne')
+let panelTwo = document.getElementById('panelTwo')
 
+clearButton.addEventListener('click', function() {
+  draw.deleteAll()
+})
+
+let nominalPower = 0
+let caclualatedArea = 0
 function updateArea(e) {
   let data = draw.getAll()
-  let answer = document.getElementById('calculated-area')
   if (data.features.length > 0) {
     //use turf area to calculate the area of the polygon in square meters and round down to the nearest meter
     //I chose to round down to the nearest square meter because typical residential solar panels roughly 1.6 square meters
-    let caclualatedArea = Math.round(area(data))
+    caclualatedArea = Math.round(area(data))
+    console.log('calculated area is', caclualatedArea)
     //calculate the nominal power assuming 150 Watts per meter and round to the nearest watt and convert to kW
-    let nominalPower = Math.round(caclualatedArea * 150) / 1000
-    answer.innerHTML =
-      '<p>Area ' +
-      caclualatedArea +
-      ' square meters </p><p>Nominal power ' +
-      nominalPower +
-      ' kW</p>'
-  } else {
-    answer.innerHTML = ''
-    if (e.type !== 'draw.delete') alert('Use the draw tools to draw a polygon!') //fix this we don't want alerts
+    nominalPower = Math.round(caclualatedArea * 150) / 1000
+    console.log('nominal power is', nominalPower)
   }
 }
+
+function displayPower() {
+  panelOne.style.display = 'none'
+  panelTwo.style.display = 'block'
+
+  let answer = document.getElementById('calculated-area')
+  answer.innerHTML =
+    '<h5>Area Selected: &nbsp;' +
+    caclualatedArea +
+    ' square meters </h5><h5>Nominal power: &nbsp;' +
+    nominalPower +
+    ' kW</h5>'
+}
+
+function reset() {
+  panelOne.style.display = 'block'
+  panelTwo.style.display = 'none'
+  draw.deleteAll()
+  nominalPower = 0
+  caclualatedArea = 0
+}
+
+resetBtn.addEventListener('click', reset)
+
+let calculateBtn = document.getElementById('calculateBtn')
+
+calculateBtn.addEventListener('click', displayPower)
