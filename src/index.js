@@ -57,7 +57,7 @@ const draw = new MapboxDraw({
   }
 })
 
-document.getElementById('draw').appendChild(draw.onAdd(map))
+map.addControl(draw)
 
 map.on('draw.create', updateArea)
 map.on('draw.delete', updateArea)
