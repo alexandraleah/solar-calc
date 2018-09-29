@@ -52,12 +52,11 @@ function updateGeocoderProximity() {
 const draw = new MapboxDraw({
   displayControlsDefault: false,
   controls: {
-    polygon: true,
-    trash: true
+    polygon: true
   }
 })
 
-map.addControl(draw)
+document.getElementById('draw').appendChild(draw.onAdd(map))
 
 map.on('draw.create', updateArea)
 map.on('draw.delete', updateArea)

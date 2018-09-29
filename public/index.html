@@ -12,12 +12,18 @@
     <div id="map"></div>
     <div class="container-fluid">
       <div class='panel' id="panelOne">
-        <h4>Draw your system</h4>
-        <div id='geocoder' class='geocoder'></div>
-        <div id='draw' class='draw'></div>
-        <div><p>Click the icon to draw a polygon where you would like to place the solar panels. Double click to complete</p>
-        <button class = "btn btn-outline-danger">Clear</button>
-         <button class = "btn btn-outline-primary">Calculate</button>
+        <h4>Design your system</h4>
+        <div class="row">
+          <div id='geocoder' class='geocoder col'></div>
+          <div class='col'>
+            <div id='draw' class='draw'></div>
+          </div>
+        </div>
+        <div><p>Search for your site. Then click the icon above and draw a polygon around the area you would like the solar panels. Double click to complete the drawing.</p>
+        <button class = "btn btn-danger">Clear</button>
+         <button class = "btn btn-primary">Calculate</button>
+        <div id='calculated-area'></div>
+
     </div>
     </div>
   </body>

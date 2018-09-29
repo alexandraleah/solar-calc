@@ -5,16 +5,16 @@
   top: 100px;
   left: 10px;
   background-color: $panel-background;
-  color: white;
+  color: $text;
   padding: 15px;
   border-radius: 2%;
 }
 
 #draw {
-  width: 30px;
-  display: inline-block;
+  width: 50px;
+  margin-top: 15px;
 }
-.mapboxgl-ctrl-group .mapboxgl-ctrl {
-  display: inline;
-  width: 30px;
+
+h3 {
+  padding: 5px;
 }
