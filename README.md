@@ -25,7 +25,7 @@ _Note_: I chose not to use React or Redux because this app is fairly small, does
 
 ## Running the tests
 
-## Resources/Research
+## Sources
 
 1. [Energy Sage](https://news.energysage.com/what-is-the-power-output-of-a-solar-panel/): "What is the Power Output of a Solar Panel"
 2. [Wikipedia](https://en.wikipedia.org/wiki/Nominal_power_%28photovoltaic%29): "Nominal Power"

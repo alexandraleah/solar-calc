@@ -6,7 +6,8 @@ module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/solar-calc/'
   },
   resolve: {
     extensions: ['.js']
