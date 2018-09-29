@@ -1,18 +1,19 @@
 //colors
 $yellow: #ffdd22;
-$orange: #ff8e00;
-$bronze: #cd7f32;
+$orange: #e87f00;
 $silver: #bfbdc1;
 $grey: #333333;
+
 $text: #37323e;
 
 //brand
-$primary: $yellow;
+$primary: $orange;
 $secondary: $grey;
 $accent: $orange;
 $background: white;
 $body-text: $text;
 $light-text: white;
+$panel-background: rgba(40, 40, 40, 0.9);
 
 //fonts
 $font: museo-sans, sans-serif;
