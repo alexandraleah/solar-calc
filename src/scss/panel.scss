@@ -10,6 +10,12 @@
 
 #panelTwo {
   display: none;
+  h4 {
+    margin-left: 1em;
+  }
+  p {
+    margin-left: 1em;
+  }
 }
 #draw {
   width: 3.1em;
@@ -33,5 +39,5 @@
 }
 
 #resetBtn {
-  margin-top: 1.25em;
+  margin: 1.25em;
 }
