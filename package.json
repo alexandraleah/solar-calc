@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "webpack -w",
+    "build": "webpack",
     "start": "webpack-dev-server --open",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d public"
 
   },
   "author": "Alexandra Ash",
