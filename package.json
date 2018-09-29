@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha  \"./src/**/*.spec.js\"  --require @babel/polyfill --require @babel/core",
     "build": "webpack",
-    "start": "webpack-dev-server --open",
-    "deploy": "gh-pages -d public"
+    "start": "webpack-dev-server --open"
   },
   "author": "Alexandra Ash",
   "license": "ISC",
