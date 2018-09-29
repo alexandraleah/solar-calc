@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>Solar Calculator</title>
     <!-- font awesome delivered by a cdn -->
@@ -8,33 +7,33 @@
     <!-- this bundle file is created by webpack -->
     <script src="./bundle.js" defer></script>
   </head>
-
   <body>
-    <header><h2>CALCULATE YOUR SOLAR POTENTIAL</h2></header>
     <div id="map"></div>
-    <div class="container-fluid">
+
     <!-- First panel, this one is displayed when page is loaded -->
-      <div class='panel' id="panelOne">
-        <h4>Design your system</h4>
+      <div class='panelContainer'>
+      <div class="container-fluid">
+
+      <div id="panelOne">
+      <h2>CALCULATE YOUR SOLAR POTENTIAL</h2>
         <div class="row">
-          <div id='geocoder' class='geocoder col-md-7'></div>
-          <div class='col-md-2'>
+          <div id='geocoder' class='geocoder'></div>
             <div id='draw' class='draw'></div>
-          </div>
-          <div class='col-md-2'><button class="fas fa-undo-alt iconBtn" id="clearBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button></div>
+          <button class="fas fa-undo-alt iconBtn btn-primary" id="clearBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button>
         </div>
         <div>
-          <p>Instructions</p>
+          <p>Directions: 1. Search for an address 2. Use the draw tool to draw a shape 3. Double click to close the shape and calculate</p>
         </div>
       </div>
       <!-- second panel this one is hidden when page is loaded and dislpayed when power is calculated -->
       <div class='panel' id="panelTwo">
-        <h4>System Stats</h4>
+        <h2>Your Solar Potential</h2>
         <div class="row">
-          <div id='stats' class='col-md-10'></div>
-          <div class='col-md-2'><button class="fas fa-undo-alt iconBtn" id="resetBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button></div>
+          <div id='stats'></div>
+          <button class="fas fa-undo-alt iconBtn" id="resetBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>
