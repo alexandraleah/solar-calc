@@ -30287,8 +30287,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ "./src/map.js");
 /* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./src/search.js");
 /* harmony import */ var _capturePolygon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./capturePolygon */ "./src/capturePolygon.js");
-/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./panel */ "./src/panel.js");
-/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_panel__WEBPACK_IMPORTED_MODULE_4__);
 //import styles
 
 
@@ -30299,8 +30297,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //import draw tools
-
-
 
 
 
@@ -30339,24 +30335,6 @@ const map = new mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.Map({
 map.addControl(new mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl())
 
 /* harmony default export */ __webpack_exports__["default"] = (map); //exports the map for use in other files
-
-
-/***/ }),
-
-/***/ "./src/panel.js":
-/*!**********************!*\
-  !*** ./src/panel.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-let closeButton = document.getElementById('closeBtn')
-let panelOne = document.getElementById('panelOne')
-console.log('hello world')
-closeButton.addEventListener('click', function() {
-  console.log('i clicked the close button')
-  panelOne.style.display = 'none'
-})
 
 
 /***/ }),
