@@ -60,9 +60,9 @@ function displayStats() {
     //displays the statistics in the panel
     let statsDisplay = document.getElementById('stats')
     statsDisplay.innerHTML =
-      '<p><span id="power">Nominal power: &nbsp;' +
+      '<h4>Nominal power: &nbsp;' +
       stats.power +
-      ' kW </span>Area Selected: &nbsp;' +
+      ' kW </h4><p>Area Selected: &nbsp;' +
       stats.caclualatedArea +
       ' square meters </p>'
   }

@@ -4,7 +4,7 @@ $orange: #e87f00;
 $silver: #bfbdc1;
 $grey: #333333;
 
-$text: #37323e;
+$text: black;
 
 //brand
 $primary: $orange;
@@ -15,15 +15,6 @@ $body-text: $text;
 $light-text: white;
 $panel-background: rgba(255, 255, 255, 0.9);
 
-//fonts
-$font: museo-sans, sans-serif;
-
 //setting bootstrap variables
-$font-family-base: $font;
-$card-cap-bg: $secondary;
-$body-bg: $background;
-$body-color: $body-text;
 
-//navbar
-$navbar-dark-color: $light-text;
-$nav-tabs-link-active-color: $light-text;
+$body-color: $body-text;

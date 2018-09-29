@@ -1,7 +1,6 @@
 //colors
 @import 'colors.scss';
-//map styles
-@import 'map.scss';
+
 //panel styles
 @import 'panel.scss';
 
@@ -13,3 +12,13 @@
 //bootstrap
 //if have time only import the modules that you use
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+}
