@@ -13,7 +13,9 @@ Clone the project and run 'npm install' to download all the necessary dependenci
 - Mapbox: I chose Mapbox because it has 1. Clear documentation 2. Ability to draw a polygon and allow the user to search along with clear documentation and example on how to implement these features 3. I prefered Mapbox's user interface for drawing polygon's over Google Maps.
 - Turf: Turf is a javascript library that provides geospatial analysis. I chose it because it was included in the Mapbox example. I only use (and installed) the area module to calculat area.
 
-I chose not to use React or Redux because this app is fairly small and does not have very much state. If I were to expand the app, I would consider React as a framework, possibly with Redux. (although maybe I'll pull it in? If it works well with Mapbox?)
+I chose not to use React or Redux because this app is fairly small, does not have much state, and does not make too many changes to the DOM. If I were to expand the app, I would use a framework, possibly React, to allow me to more efficiently update the DOM and create reusable components. I would also consider using Redux to manage state.
+
+Typical residential solar panels are roughly 1.6 square meters
 
 ##Resources I used
 https://news.energysage.com/what-is-the-power-output-of-a-solar-panel/
