@@ -4,11 +4,10 @@
   "description": "Calculates nominal power of a user defined hypothetical solar installation",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "mocha  \"./src/**/*.spec.js\"  --require @babel/polyfill --require @babel/core",
     "build": "webpack",
     "start": "webpack-dev-server --open",
     "deploy": "gh-pages -d public"
-
   },
   "author": "Alexandra Ash",
   "license": "ISC",
@@ -28,12 +27,14 @@
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "chai": "^4.2.0",
     "css-loader": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-fullstack": "^6.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^2.0.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
