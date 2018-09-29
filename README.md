@@ -23,8 +23,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 _Note_: I chose not to use React or Redux because this app is fairly small, does not have much state, has few components and does not make very many changes to the DOM. Therefore I decided I could handle the DOM manipulation with vanilla javascript and some jquery (which is built into some of the features of Bootstrap). If I were to expand the app, I would use a framework, possibly React, to allow me to more efficiently update the DOM and create reusable components. I would also consider using Redux to manage state.
 
-## Running the tests
-
 ## Sources
 
 1. [Energy Sage](https://news.energysage.com/what-is-the-power-output-of-a-solar-panel/): "What is the Power Output of a Solar Panel"
