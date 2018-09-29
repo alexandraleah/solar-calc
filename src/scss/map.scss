@@ -1,5 +1,5 @@
 #map {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 50px);
   width: 100vw;
 }
 
@@ -10,11 +10,8 @@ body {
 
 header {
   padding: 10px;
+  height: 50px;
   background-color: $primary;
   text-align: center;
   color: white;
-}
-
-.mapboxgl-ctrl {
-  margin: 10px;
 }

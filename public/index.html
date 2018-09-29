@@ -17,22 +17,24 @@
       <div class='panel' id="panelOne">
         <h4>Design your system</h4>
         <div class="row">
-          <div id='geocoder' class='geocoder col'></div>
-          <div class='col'>
+          <div id='geocoder' class='geocoder col-md-7'></div>
+          <div class='col-md-2'>
             <div id='draw' class='draw'></div>
           </div>
+          <div class='col-md-2'><button class="fas fa-undo-alt clearBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button></div>
         </div>
         <div>
-          <p>Search for your site. Then click the icon above and draw a polygon around the area you would like the solar panels. Double click to complete the drawing.</p>
-          <button class = "btn btn-danger" id="clearBtn">Clear</button>
-          <button class = "btn btn-primary" id="calculateBtn">Calculate</button>
+          <p>Instructions</p>
         </div>
       </div>
       <!-- second panel this one is hidden when page is loaded and dislpayed when power is calculated -->
       <div class='panel' id="panelTwo">
         <h4>System Stats</h4>
-        <div id='calculated-area'></div>
-        <button class = "btn btn-primary" id="resetBtn">Reset</button>
+        <div class="row">
+          <div id='stats' class='col-md-10'></div>
+          <div class='col-md-2'><button class="fas fa-undo-alt clearBtn" data-toggle="tooltip" data-placement="top" title="Reset"></button></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -65,7 +65,7 @@ map.on('draw.update', updateArea)
 //A solar panel with a 15% efficiency rate would produce 150 watts per square meter under standard test conditions
 //rewrite this formula as the app devleops to make it make more sense for this context
 
-let clearButton = document.getElementById('clearBtn')
+let clearButton = document.getElementsByClassName('clearBtn')
 let resetBtn = document.getElementById('resetBtn')
 let panelOne = document.getElementById('panelOne')
 let panelTwo = document.getElementById('panelTwo')
@@ -74,32 +74,25 @@ clearButton.addEventListener('click', function() {
   draw.deleteAll()
 })
 
-let nominalPower = 0
-let caclualatedArea = 0
 function updateArea(e) {
   let data = draw.getAll()
   if (data.features.length > 0) {
     //use turf area to calculate the area of the polygon in square meters and round down to the nearest meter
     //I chose to round down to the nearest square meter because typical residential solar panels roughly 1.6 square meters
-    caclualatedArea = Math.round(area(data))
-    console.log('calculated area is', caclualatedArea)
+    let caclualatedArea = Math.round(area(data))
     //calculate the nominal power assuming 150 Watts per meter and round to the nearest watt and convert to kW
-    nominalPower = Math.round(caclualatedArea * 150) / 1000
-    console.log('nominal power is', nominalPower)
+    let nominalPower = Math.round(caclualatedArea * 150) / 1000
+    panelOne.style.display = 'none'
+    panelTwo.style.display = 'block'
+
+    let answer = document.getElementById('stats')
+    answer.innerHTML =
+      '<p><span id="power">Nominal power: &nbsp;' +
+      nominalPower +
+      ' kW </span>Area Selected: &nbsp;' +
+      caclualatedArea +
+      ' square meters </p>'
   }
-}
-
-function displayPower() {
-  panelOne.style.display = 'none'
-  panelTwo.style.display = 'block'
-
-  let answer = document.getElementById('calculated-area')
-  answer.innerHTML =
-    '<h5>Area Selected: &nbsp;' +
-    caclualatedArea +
-    ' square meters </h5><h5>Nominal power: &nbsp;' +
-    nominalPower +
-    ' kW</h5>'
 }
 
 function reset() {
