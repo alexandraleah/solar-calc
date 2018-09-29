@@ -9,5 +9,3 @@ import './search'
 
 //import draw tools
 import './capturePolygon'
-
-import './calculate'

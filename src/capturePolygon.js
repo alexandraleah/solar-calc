@@ -1,13 +1,16 @@
-//tools to draw polygon and capture its data
+//draw polygon and display statistics
+
 //draw tools to draw polygon
 import MapboxDraw from '@mapbox/mapbox-gl-draw' //this library allows drawing
 import map from './map'
+import calculate from './calculate'
 
 //get elements by ID from DOM
 let clearButton = document.getElementById('clearBtn')
 let resetBtn = document.getElementById('resetBtn')
 let panelOne = document.getElementById('panelOne')
 let panelTwo = document.getElementById('panelTwo')
+let drawTools = document.getElementById('draw')
 
 //Mapbox draw create a simple user interface to draw polygons (in this case) on the map.
 //tutorial here https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
@@ -18,9 +21,8 @@ const draw = new MapboxDraw({
   }
 })
 
-//move this document.getElementById with the rest for clarity
 //appends the draw tool to the element with id 'draw' in the panel
-document.getElementById('draw').appendChild(draw.onAdd(map))
+drawTools.appendChild(draw.onAdd(map))
 
 //deletes all polygons when user selects clear button on panel one
 clearButton.addEventListener('click', function() {
@@ -37,14 +39,31 @@ function reset() {
 //attaches the reset function to the reset button
 resetBtn.addEventListener('click', reset)
 
-//updates area draw, delete and update
-map.on('draw.create', captureArea)
-map.on('draw.delete', captureArea)
-map.on('draw.update', captureArea)
-//fix this so functional
-let data
-function captureArea() {
-  data = draw.getAll()
+//calls displayStats function on draw, delete and update
+map.on('draw.create', displayStats)
+map.on('draw.delete', displayStats)
+map.on('draw.update', displayStats)
+
+//calculates area and displays stats
+function displayStats() {
+  //gets data from polygon
+  let data = draw.getAll()
+  //only calculates and displays stats if length is greater than 0.
+  if (data.features.length > 0) {
+    //calculates the statistics using the imported function
+    let stats = calculate(data)
+    //hides the toolbar panel
+    panelOne.style.display = 'none'
+    //displays the stats panel
+    panelTwo.style.display = 'block'
+
+    //displays the statistics in the panel
+    let statsDisplay = document.getElementById('stats')
+    statsDisplay.innerHTML =
+      '<p><span id="power">Nominal power: &nbsp;' +
+      stats.power +
+      ' kW </span>Area Selected: &nbsp;' +
+      stats.caclualatedArea +
+      ' square meters </p>'
+  }
 }
-export default data
-//exports data for use in calculate module
