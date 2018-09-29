@@ -2,23 +2,32 @@
 
 A prototype of a web app that calculates nominal power of a user defined hypothetical solar installation. This is a prototype/demo: please don't use it to make decisions about solar installations.
 
-##USUAGE:
-Clone the project and run 'npm install' to download all the necessary dependencies.
+## Getting Started
 
-##BUILT WITH
-(include links to each of these)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-- Webpack: I chose Wepback because it allows 1. for the use of modules on the front-end 2. installing third party modules via NPM (fix this explanation). I also use webpack's dev server for ease of development
-- Babel
-- Mapbox: I chose Mapbox because it has 1. Clear documentation 2. Ability to draw a polygon and allow the user to search along with clear documentation and example on how to implement these features 3. I prefered Mapbox's user interface for drawing polygon's over Google Maps.
-- Turf: Turf is a javascript library that provides geospatial analysis. I chose it because it was included in the Mapbox example. I only use (and installed) the area module to calculat area.
+1. Clone and download the project to your local machine
+2. run 'npm install' to download all the necessary dependencies.
+3. run 'npm start' to start the development server. The app will launch in your default browser at port 8080
 
-I chose not to use React or Redux because this app is fairly small, does not have much state, and does not make too many changes to the DOM. If I were to expand the app, I would use a framework, possibly React, to allow me to more efficiently update the DOM and create reusable components. I would also consider using Redux to manage state.
+## What I built with and why
 
-Typical residential solar panels are roughly 1.6 square meters
+- [Mapbox](https://www.mapbox.com/) - I chose Mapbox for
+  1. It's clear documentation
+  2. Clear examples and documentation on how to allow the user to draw a polygon and how to calculate the area
+  3. Ability to allow the user to search for an address and clear documentation on how to implement this
+- [Turf](http://turfjs.org/) Turf is a javascript library that provides geospatial analysis. I used the area module to calculate the area of the polygon.
+- [Bootstrap](http://getbootstrap.com/) Used Bootstrap for grid layout, ease of styling and a few jquery features. If I intended to put this app into production I would consider removing Bootstrap as I use only a few features and it places a fairly large dependency. Otherwise I would bundle only the modules I need.
+- [Webpack](https://webpack.js.org/) - Webpack bundles modules, allowing for modular code and ease of use of libraries installed via NPM
+- [Babel](https://babeljs.io/) - Transpiles next generation javacript for use on browsers that cannot support it
 
-##Resources I used
-https://news.energysage.com/what-is-the-power-output-of-a-solar-panel/
-https://en.wikipedia.org/wiki/Nominal_power_%28photovoltaic%29
-https://thegrid.rexel.com/en-us/forums/renewable-and-energy-efficiency/f/forum/350/how-is-the-nominal-power-of-a-solar-pv-module-defined
-https://blog.pickmysolar.com/what-is-solar-panel-efficiency
+_Note_: I chose not to use React or Redux because this app is fairly small, does not have much state, has few components and does not make very many changes to the DOM. Therefore I decided I could handle the DOM manipulation with vanilla javascript and some jquery (which is built into some of the features of Bootstrap). If I were to expand the app, I would use a framework, possibly React, to allow me to more efficiently update the DOM and create reusable components. I would also consider using Redux to manage state.
+
+## Running the tests
+
+##Resources/Research
+
+1. https://news.energysage.com/what-is-the-power-output-of-a-solar-panel/
+2. https://en.wikipedia.org/wiki/Nominal_power_%28photovoltaic%29
+3. https://thegrid.rexel.com/en-us/forums/renewable-and-energy-efficiency/f/forum/350/how-is-the-nominal-power-of-a-solar-pv-module-defined
+4. https://blog.pickmysolar.com/what-is-solar-panel-efficiency
